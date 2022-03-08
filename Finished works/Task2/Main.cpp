@@ -9,14 +9,12 @@ int main()
 
 	Hex hex1("AA", 2);
 	Hex hex2("3AB", 3);
-	Hex hex3("BA", 2);
-	hex1 = hex2;
-	hex1.print();
+	Hex hex3("BA1", 3);
 
 	hex1 = hex2 + hex3;
 	hex1.print();
 
-	hex2 = hex2 - hex3;
+	hex2 = hex1 - hex3;
 	hex2.print();
 
 	hex3 = hex1 * hex2;
@@ -25,8 +23,13 @@ int main()
 	std::cout << (hex1 < hex2) << "  " << (hex1 != hex3);
 
 	std::fstream file;
-	file.open("file.txt", std::fstream::in || std::fstream::out);
+	std::string s;
+
+	file.open("file.txt", std::fstream::app); //Заполнение файла
 	file << hex1;
+	file.close();
+
+	file.open("file.txt", std::fstream::in); //Вывод из файла в консоль
 	file >> hex1;
 	file.close();
 }

@@ -36,9 +36,15 @@ public:
 		}
 	}
 
-	Hex(const int& _size)
+	Hex(const Hex& h)
 	{
-
+		this->size = h.size;
+		this->hex = new unsigned char[this->size];
+		for (int i = 0; i < this->size; i++)
+		{
+			this->hex[i] = h.hex[i];
+		}
+		this->flag_memory = h.flag_memory;
 	}
 
 	~Hex()
@@ -48,9 +54,12 @@ public:
 
 	Hex & operator=(const Hex &_num)
 	{
-		this->size = _num.size;
-		delete[] this->hex;
-		this->hex = new unsigned char[this->size];
+		if (this->size != _num.size)
+		{
+			this->size = _num.size;
+			delete[] this->hex;
+			this->hex = new unsigned char[this->size];
+		}
 		for (int i = 0; i < this->size; i++)
 		{
 			this->hex[i] = _num.hex[i];
@@ -62,34 +71,34 @@ public:
 	{
 		Hex h;
 		int sum;
-		sum = htoi(*this) + htoi(_num);
+		sum = this->htoi() + _num.htoi();
 		h = itoh(sum);
-		return *this;
+		return h;
 	}
 
 	Hex operator-(const Hex& _num)
 	{
 		Hex h;
 		int sum;
-		sum = htoi(*this) - htoi(_num);
+		sum = this->htoi() - _num.htoi();
 		h = itoh(sum);
-		return *this;
+		return h;
 	}
 	Hex operator*(const Hex& _num)
 	{
 		Hex h;
 		int sum;
-		sum = htoi(*this) * htoi(_num);
+		sum = this->htoi() * _num.htoi();
 		h = itoh(sum);
-		return *this;
+		return h;
 	}
 
-	bool operator>(const Hex& _num) { return htoi(*this) >  htoi(_num); }
-	bool operator>=(const Hex& _num){ return htoi(*this) >= htoi(_num); }
-	bool operator<(const Hex& _num) { return htoi(*this) <  htoi(_num); }
-	bool operator<=(const Hex& _num){ return htoi(*this) <= htoi(_num); }
-	bool operator==(const Hex& _num){ return htoi(*this) == htoi(_num); }
-	bool operator!=(const Hex& _num){ return htoi(*this) != htoi(_num); }
+	bool operator>(const Hex& _num) { return this->htoi() >  _num.htoi(); }
+	bool operator>=(const Hex& _num){ return this->htoi() >= _num.htoi(); }
+	bool operator<(const Hex& _num) { return this->htoi() < _num.htoi(); }
+	bool operator<=(const Hex& _num){ return this->htoi() <= _num.htoi(); }
+	bool operator==(const Hex& _num){ return this->htoi() == _num.htoi(); }
+	bool operator!=(const Hex& _num){ return this->htoi() != _num.htoi(); }
 
 
 	void print()
@@ -105,20 +114,20 @@ public:
 		else { std::cout << "Невозможно вывести данный массив" << std::endl; }
 	}
 
-	int htoi(const Hex &hex)
+	int htoi()const
 	{
 		int n = 0;
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < this->size; i++)
 		{
-			switch(hex.hex[i])
+			switch(this->hex[i])
 			{
-			case 65: n += 10 * pow(16, hex.size - 1 - i); break;
-			case 66: n += 11 * pow(16, hex.size - 1 - i); break;
-			case 67: n += 12 * pow(16, hex.size - 1 - i); break;
-			case 68: n += 13 * pow(16, hex.size - 1 - i); break;
-			case 69: n += 14 * pow(16, hex.size - 1 - i); break;
-			case 70: n += 15 * pow(16, hex.size - 1 - i); break;
-			default: n += (hex.hex[i] - 48) * pow(16, hex.size - 1 - i);
+			case 65: n += 10 * pow(16, this->size - 1 - i); break;
+			case 66: n += 11 * pow(16, this->size - 1 - i); break;
+			case 67: n += 12 * pow(16, this->size - 1 - i); break;
+			case 68: n += 13 * pow(16, this->size - 1 - i); break;
+			case 69: n += 14 * pow(16, this->size - 1 - i); break;
+			case 70: n += 15 * pow(16, this->size - 1 - i); break;
+			default: n += (this->hex[i] - 48) * pow(16, this->size - 1 - i);
 			}
 		}
 		return n;
@@ -152,13 +161,19 @@ public:
 		{
 			os << hex.hex[i];
 		}
+		os << std::endl;
 		return os;
 	}
 
-	friend std::istream& operator>>(std::istream& is, const Hex& hex)
+	friend std::istream& operator>>(std::istream& in, const Hex& hex)
 	{
-		is >> hex.hex;
-		return is;
+		std::string s;
+		std::cout << std::endl;
+		while (getline(in, s))
+		{
+			std::cout << s << std::endl;
+		}
+		return in;
 	}
 };
 #endif HEX.H
