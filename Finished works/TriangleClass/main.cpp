@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+#include "Header.h"
 /* Задание: дописать пропущенные методы, выделить функции, классы,
 заменить часть функций перегрузкой операторов.
 
@@ -71,14 +71,14 @@ void inputTriangle(Type _type) {
 }
 
 */
+const enum Type { bySides, byBaseAndHeight, byPointsCoords };
 
-enum Type { bySides, byBaseAndHeight, byPointsCoords };
-
+Triangle tr1;
+Menu menu;
 int main() {
     int user_choosen;
-    int AB, BC, AC;
+    int AB, BC, AC, h;
     int A[2], B[2], C[2];
-    int h;
     float p, S;
     bool exit_flag = false, back_flag;
 
@@ -96,16 +96,7 @@ int main() {
         switch (user_choosen) {
         case 1:
             _inputType = bySides;
-            while (1) {
-                std::cout << "Input 3 side of triangle (between space): ";
-                std::cin >> AB >> BC >> AC;
-                if (!(AB + BC > AC && AB + AC > BC && AC + BC > AB)) {
-                    std::cout << "Input error: triangle dont exist" << std::endl;
-                    std::cout << "Try again" << std::endl;
-                    continue;
-                }
-                break;
-            }
+            tr1 = menu.inputSide();
             break;
         case 2:
             _inputType = byBaseAndHeight;
