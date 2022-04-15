@@ -1,0 +1,18 @@
+﻿  main.cpp
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\Header.h(2,1): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\Header.h(61,8): error C2065: bySides: необъявленный идентификатор
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\Header.h(61,8): error C2131: выражение не определяется константой
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\Header.h(61,8): message : обнаружено неконстантное (под)выражение
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\Header.h(61,1): error C2051: значение выражения для варианта выбора не является константой
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\Header.h(63,1): warning C4060: оператор switch не содержит метку "case" или "default"
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(138,44): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(147,32): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(151,29): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(159,33): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(166,30): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(167,30): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(168,30): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(169,33): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(196,30): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(197,30): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\Desktop\Project\Прога\TemplateWithClasses\Finished works\TriangleClass\main.cpp(198,30): warning C4244: =: преобразование "double" в "int", возможна потеря данных
